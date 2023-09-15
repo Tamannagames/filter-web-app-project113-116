@@ -1,0 +1,34 @@
+/* Add background image to the webpage */
+body {
+    background-image: url('The bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Style for the heading tag */
+.heading {
+    text-align: center;
+    font-size: 36px;
+    color: white;
+    padding-top: 50px;
+}
+
+/* Style for the button */
+#saveButton {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Style for the canvas */
+.canvas {
+    display: block;
+    margin: 20px auto;
+    border: 2px solid black;
+}
