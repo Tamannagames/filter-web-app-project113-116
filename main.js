@@ -1,25 +1,40 @@
-function preload() {
-    // You can load any resources here if needed.
-}
+let video;
+let poseNet;
+let noseX = 0;
+let noseY = 0;
+let canvas;
 
 function setup() {
-    const canvas = createCanvas(400, 400); // Define the canvas size as per your requirements
-    canvas.parent('canvas'); // Make canvas a child of the 'canvas' div
-    centerCanvas(); // Center the canvas initially
+  canvas = createCanvas(640, 480);
+  canvas.class('canvas');
+  
+  video = createCapture(VIDEO);
+  video.size(width, height);
+  video.hide();
+
+  poseNet = ml5.poseNet(video, modelLoaded);
+  poseNet.on('pose', gotPoses);
+}
+
+function modelLoaded() {
+  console.log('PoseNet model loaded');
+}
+
+function gotPoses(poses) {
+  if (poses.length > 0) {
+    let nose = poses[0].pose.keypoints[0];
+    noseX = nose.position.x;
+    noseY = nose.position.y;
+  }
 }
 
 function draw() {
-    // Keep this function empty for now, as it will be used in the upcoming project.
-}
-
-function centerCanvas() {
-    const x = (windowWidth - width) / 2;
-    const y = (windowHeight - height) / 2;
-    canvas.position(x, y);
+  image(video, 0, 0, width, height);
+  
+  fill(255, 0, 0);
+  ellipse(noseX, noseY, 20, 20);
 }
 
 function saveFilteredImage() {
-    // Define the logic to save the filtered image here.
-    // You can use the canvas to get the image data and save it.
-    // This function will be responsible for saving the filtered image.
+  
 }

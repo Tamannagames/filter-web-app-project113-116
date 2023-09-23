@@ -1,4 +1,3 @@
-/* Add background image to the webpage */
 body {
     background-image: url('The bg.jpg');
     background-size: cover;
@@ -6,7 +5,6 @@ body {
     background-attachment: fixed;
 }
 
-/* Style for the heading tag */
 .heading {
     text-align: center;
     font-size: 36px;
@@ -14,8 +12,7 @@ body {
     padding-top: 50px;
 }
 
-/* Style for the button */
-#saveButton {
+#save-button {
     display: block;
     margin: 0 auto;
     padding: 10px 20px;
@@ -26,7 +23,6 @@ body {
     cursor: pointer;
 }
 
-/* Style for the canvas */
 .canvas {
     display: block;
     margin: 20px auto;
